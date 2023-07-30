@@ -1,8 +1,8 @@
 import "./App.css";
+import Counter from "./components/Counter";
 
 function App() {
-  console.log("Hello World!");
-  return <h1>Hello World!</h1>;
+  return <Counter />;
 }
 
 export default App;
