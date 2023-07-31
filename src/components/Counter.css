@@ -1,0 +1,25 @@
+.main-content {
+  position: absolute;
+  top: 300px;
+}
+
+.count {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+  min-height: 80px;
+}
+
+.buttons {
+  min-width: 500px;
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  width: 160px;
+  height: 60px;
+  font-size: 24px;
+  cursor: pointer;
+}

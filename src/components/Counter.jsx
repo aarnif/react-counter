@@ -2,6 +2,8 @@ import "./Counter.css";
 import { useEffect, useState } from "react";
 import { db } from "../FireBase";
 import { collection, getDocs, doc, updateDoc } from "firebase/firestore/lite";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";
 
 const Counter = () => {
   const [count, setCount] = useState(null);
@@ -49,11 +51,23 @@ const Counter = () => {
   };
 
   return (
-    <main>
-      <div>Counter: {count}</div>
-      <button onClick={increaseCount}>Increment</button>
-      <button onClick={decreaseCount}>Decrement</button>
-      <button onClick={resetCount}>Reset</button>
+    <main className="main-content">
+      <h1 className="count">
+        {count !== null ? (
+          count
+        ) : (
+          <FontAwesomeIcon
+            icon={faCircleNotch}
+            spin
+            style={{ color: "#ffffff" }}
+          />
+        )}
+      </h1>
+      <div className="buttons">
+        <button onClick={increaseCount}>Increment</button>
+        <button onClick={decreaseCount}>Decrement</button>
+        <button onClick={resetCount}>Reset</button>
+      </div>
     </main>
   );
 };
