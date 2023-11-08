@@ -1,7 +1,6 @@
 import "./App.css";
 import { useEffect, useState } from "react";
-import { db } from "./FireBase";
-import { collection, getDocs, doc, updateDoc } from "firebase/firestore/lite";
+import dataService from "./services/data";
 import Counter from "./components/Counter";
 
 function App() {
@@ -9,26 +8,16 @@ function App() {
 
   useEffect(() => {
     // Fetch data from database when page first loads
-    const getCount = async (db) => {
-      const savedCountSnapShot = await getDocs(collection(db, "savedCount"));
-      return savedCountSnapShot.docs[0].data();
-    };
-    getCount(db).then((data) => {
+    dataService.get().then((data) => {
       setCount(data.value);
       console.log("Previous count value fetched!");
     });
   }, []);
 
   useEffect(() => {
-    const updateData = async (db) => {
-      const updateData = await updateDoc(doc(db, "savedCount", "countValue"), {
-        value: count,
-      });
-      return updateData;
-    };
     // Update database only after 500ms has passed from previous click or when page first loads
     const updateDataTimeout = setTimeout(async () => {
-      await updateData(db);
+      await dataService.update(count);
       console.log("Count value saved to database!");
     }, 500);
 
@@ -46,6 +35,7 @@ function App() {
   const resetCount = () => {
     setCount(0);
   };
+
   return (
     <Counter
       count={count}
