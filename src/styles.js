@@ -1,16 +1,26 @@
-import styled from "styled-components";
+import { styled, keyframes } from "styled-components";
 
 export const MainContainer = styled.main`
   position: relative;
   bottom: 300px;
 `;
 
-export const CounterHeader = styled.h1`
+const transform = keyframes`
+  0% {transform: scale(1.0);}
+  50% {transform: scale(1.5);}
+  100% {transform: scale(1.0);}
+`;
+
+export const LoadingHeader = styled.h1`
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 50px;
   min-height: 80px;
+`;
+
+export const CounterHeader = styled(LoadingHeader)`
+  animation: ${transform} 300ms ease-in-out;
 `;
 
 export const ButtonsContainer = styled.div`
@@ -24,4 +34,13 @@ export const Button = styled.button`
   height: 60px;
   font-size: 24px;
   cursor: pointer;
+  border: 1px solid black;
+  border-radius: 20px;
+  &:hover {
+    background-color: green;
+  }
+  &:active {
+    transform: scale(0.9);
+    transition: transform 100ms ease-in-out;
+  }
 `;
