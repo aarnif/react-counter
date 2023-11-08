@@ -1,6 +1,11 @@
-import "./Counter.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";
+import {
+  MainContainer,
+  CounterHeader,
+  ButtonsContainer,
+  Button,
+} from "../styles";
 import { useSelector, useDispatch } from "react-redux";
 import {
   incrementValue,
@@ -17,8 +22,8 @@ const Counter = () => {
   const resetCount = () => dispatch(resetValue(count));
 
   return (
-    <main className="main-content">
-      <h1 className="count">
+    <MainContainer>
+      <CounterHeader>
         {count !== null ? (
           count
         ) : (
@@ -28,13 +33,13 @@ const Counter = () => {
             style={{ color: "#ffffff" }}
           />
         )}
-      </h1>
-      <div className="buttons">
-        <button onClick={increaseCount}>Increment</button>
-        <button onClick={decreaseCount}>Decrement</button>
-        <button onClick={resetCount}>Reset</button>
-      </div>
-    </main>
+      </CounterHeader>
+      <ButtonsContainer>
+        <Button onClick={increaseCount}>Increment</Button>
+        <Button onClick={decreaseCount}>Decrement</Button>
+        <Button onClick={resetCount}>Reset</Button>
+      </ButtonsContainer>
+    </MainContainer>
   );
 };
 
