@@ -1,39 +1,41 @@
 import "./App.css";
-import { useEffect, useState } from "react";
-import dataService from "./services/data";
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  iniatilizeState,
+  incrementValue,
+  decrementValue,
+  resetValue,
+  updateValue,
+} from "./reducers/counter";
 import Counter from "./components/Counter";
 
 function App() {
-  const [count, setCount] = useState(null);
+  const dispatch = useDispatch();
+  const count = useSelector((state) => state.counter);
 
   useEffect(() => {
-    // Fetch data from database when page first loads
-    dataService.get().then((data) => {
-      setCount(data.value);
-      console.log("Previous count value fetched!");
-    });
+    dispatch(iniatilizeState());
   }, []);
 
   useEffect(() => {
     // Update database only after 500ms has passed from previous click or when page first loads
-    const updateDataTimeout = setTimeout(async () => {
-      await dataService.update(count);
-      console.log("Count value saved to database!");
+    const updateDataWithTimeout = setTimeout(async () => {
+      dispatch(updateValue(count));
     }, 500);
-
-    return () => clearTimeout(updateDataTimeout);
+    return () => clearTimeout(updateDataWithTimeout);
   }, [count]);
 
   const increaseCount = () => {
-    setCount((prevCount) => prevCount + 1);
+    dispatch(incrementValue(count));
   };
 
   const decreaseCount = () => {
-    setCount((prevCount) => (prevCount > 0 ? prevCount - 1 : 0));
+    dispatch(decrementValue(count));
   };
 
   const resetCount = () => {
-    setCount(0);
+    dispatch(resetValue(count));
   };
 
   return (
