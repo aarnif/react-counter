@@ -26,12 +26,10 @@ function App() {
       });
       return updateData;
     };
-
     // Update database only after 500ms has passed from previous click or when page first loads
-    const updateDataTimeout = setTimeout(() => {
-      updateData(db).then(() => {
-        console.log("Count value saved to database!");
-      });
+    const updateDataTimeout = setTimeout(async () => {
+      await updateData(db);
+      console.log("Count value saved to database!");
     }, 500);
 
     return () => clearTimeout(updateDataTimeout);
