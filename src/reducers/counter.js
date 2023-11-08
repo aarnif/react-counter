@@ -1,11 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 import counterService from "../services/counter";
 
-const initialState = 0;
-
 const counterSlice = createSlice({
   name: "counter",
-  initialState,
+  initialState: null,
   reducers: {
     setValue(state, action) {
       return action.payload;
