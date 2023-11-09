@@ -36,11 +36,29 @@ export const Button = styled.button`
   cursor: pointer;
   border: 1px solid black;
   border-radius: 20px;
-  &:hover {
-    background-color: green;
-  }
   &:active {
     transform: scale(0.9);
     transition: transform 100ms ease-in-out;
+  }
+`;
+
+export const IncrementButton = styled(Button)`
+  background-color: green;
+  &:hover {
+    background-color: darkgreen;
+  }
+`;
+
+export const DecrementButton = styled(Button)`
+  background-color: red;
+  &:hover {
+    background-color: darkred;
+  }
+`;
+
+export const ResetButton = styled(Button)`
+  background-color: orange;
+  &:hover {
+    background-color: rgb(139, 64, 0);
   }
 `;

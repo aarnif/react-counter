@@ -5,7 +5,9 @@ import {
   LoadingHeader,
   CounterHeader,
   ButtonsContainer,
-  Button,
+  IncrementButton,
+  DecrementButton,
+  ResetButton,
 } from "../styles";
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -37,9 +39,9 @@ const Counter = () => {
         </LoadingHeader>
       )}
       <ButtonsContainer>
-        <Button onClick={increaseCount}>Increment</Button>
-        <Button onClick={decreaseCount}>Decrement</Button>
-        <Button onClick={resetCount}>Reset</Button>
+        <IncrementButton onClick={increaseCount}>Increment</IncrementButton>
+        <DecrementButton onClick={decreaseCount}>Decrement</DecrementButton>
+        <ResetButton onClick={resetCount}>Reset</ResetButton>
       </ButtonsContainer>
     </MainContainer>
   );
