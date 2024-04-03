@@ -8,7 +8,8 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background: linear-gradient(to left, #0f172a 0%, #475569 50%, #0f172a 100%);
+  text-shadow: 1px 1px 1px #000000;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;

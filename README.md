@@ -1,8 +1,41 @@
-# React + Vite
+# Counter
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple counter app built with React. The app allows the user to increment, decrement, reset the counter.
+The value is stored to Firebase's Cloud Firestore.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- User can increment the counter.
+- User can decrement the counter.
+- User can reset the counter.
+
+## Live Preview
+
+[COUNTER](https://aarnif.github.io/react-counter/)
+
+## Technologies
+
+- HTML
+- CSS
+- React
+
+## Image
+
+![Index Page](src/assets/images/page.png)
+Image of the home page.
+
+## Instructions
+
+```
+HTTPS - git clone https://github.com/aarnif/react-counter.git
+
+SSH - git clone git@github.com:aarnif/react-counter.git
+
+cd react-counter
+
+npm install
+
+npm run dev # For development
+
+npm run build # For production
+```
